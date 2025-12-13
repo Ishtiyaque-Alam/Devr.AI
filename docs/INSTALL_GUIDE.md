@@ -75,12 +75,12 @@ cd backend
 docker-compose up -d # Start weaviate, falkordb, rabbitmq
 ```
 
-9. **Start Docker containers**
+8. **Start Docker containers**
 ```sh
 Go to docker dekstop and start the containers
 ```
 
-10. **Start the backend server**
+9. **Start the backend server**
 ```sh
 cd backend
 poetry run python main.py # Terminal 1
@@ -90,7 +90,7 @@ cd .\backend\app\database\falkor\code-graph-backend\api
 flask --app index.py run --debug --port 5000 
 ```
 
-11. **Start the frontend** (in a new terminal)
+10. **Start the frontend** (in a new terminal)
 ```sh
 cd frontend
 npm install
