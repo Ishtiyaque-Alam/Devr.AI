@@ -5,10 +5,12 @@ import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
-  setRepoData: (data: any) => void; // Function to pass data to parent
+  setRepoData?: (data: any) => void;
+  message: string;
 }
 
-const LandingPage: React.FC<Props> = ({ setRepoData }) => {
+const LandingPage: React.FC<Props> = ({ setRepoData, message }) => {
+  const safeSetRepoData = setRepoData ?? (() => {});
   const [repoUrl, setRepoUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -21,7 +23,7 @@ const LandingPage: React.FC<Props> = ({ setRepoData }) => {
     setLoading(true);
     try {
       const response = await axios.post('http://localhost:8000/api/repo-stats', { repo_url: repoUrl });
-      setRepoData(response.data); // Pass fetched data to parent
+      safeSetRepoData(response.data);
       toast.success('Repository stats fetched successfully!');
       navigate('/dashboard'); // Navigate to dashboard
     } catch (error) {

@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { toast } from 'react-hot-toast';
 import ContributorCard from './ContributorCard';
+import LandingPage from '../landing/LandingPage';
 
 interface Props {
   repoData: any; // Fetched repository stats
+  setRepoData?: (data: any) => void;
 }
 
-const ContributorsPage: React.FC<Props> = ({ repoData }) => {
+const ContributorsPage: React.FC<Props> = ({ repoData, setRepoData }) => {
   const [contributors, setContributors] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -27,7 +29,7 @@ const ContributorsPage: React.FC<Props> = ({ repoData }) => {
   };
 
   if (!repoData) {
-    return <div>No data available. Please analyze a repository first.</div>;
+    return <LandingPage setRepoData={setRepoData || (() => {})} />;
   }
 
   if (loading) {

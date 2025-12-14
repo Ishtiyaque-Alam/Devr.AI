@@ -4,14 +4,16 @@ import { toast } from 'react-hot-toast';
 import { Users, GitPullRequest, MessageSquare, Activity, Github, Slack } from 'lucide-react';
 import StatCard from './StatCard';
 import BotIntegration from '../integration/BotIntegration';
+import LandingPage from '../landing/LandingPage';
 
 interface Props {
   repoData: any; // Fetched repository stats
+  setRepoData?: (data: any) => void; // Function to pass data to parent
 }
 
-const Dashboard: React.FC<Props> = ({ repoData }) => {
+const Dashboard: React.FC<Props> = ({ repoData,setRepoData }) => {
   if (!repoData) {
-    return <div>No data available. Please analyze a repository first.</div>;
+        return <LandingPage setRepoData={setRepoData || (() => {})} />;
   }
 
   const handleNewIntegration = () => {

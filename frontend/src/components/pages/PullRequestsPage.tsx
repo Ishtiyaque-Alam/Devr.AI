@@ -1,4 +1,5 @@
 import React from 'react';
+import LandingPage from '../landing/LandingPage';
 import { motion } from 'framer-motion';
 
 interface PullRequest {
@@ -17,11 +18,15 @@ interface PullRequest {
 
 interface Props {
   repoData: { pull_requests: { details: PullRequest[] } } | null;
+  setRepoData?: (data: any) => void;
 }
 
-const PullRequestsPage: React.FC<Props> = ({ repoData }) => {
-  if (!repoData || !repoData.pull_requests) {
-    return <div>No data available. Please analyze a repository first.</div>;
+const PullRequestsPage: React.FC<Props> = ({ repoData, setRepoData }) => {
+  if (!repoData) {
+        return <LandingPage setRepoData={setRepoData || (() => {})} />;
+    }
+    if (!repoData.pull_requests) {
+        return <div>No data available for pull requests. Please analyze a repository first.</div>;
   }
 
   const prs = repoData.pull_requests.details;

@@ -161,11 +161,11 @@ function App() {
             }
           >
             <Route index element={<LandingPage setRepoData={setRepoData} />} />
-            <Route path="dashboard" element={<Dashboard repoData={repoData} />} />
+            <Route path="dashboard" element={<Dashboard repoData={repoData} setRepoData={setRepoData} />} />
             <Route path="integration" element={<BotIntegrationPage />} />
-            <Route path="contributors" element={<ContributorsPage repoData={repoData} />} />
-            <Route path="analytics" element={<AnalyticsPage repoData={repoData} />} />
-            <Route path="prs" element={<PullRequestsPage repoData={repoData} />} />
+            <Route path="contributors" element={<ContributorsPage repoData={repoData} setRepoData={setRepoData} />} />
+            <Route path="analytics" element={<AnalyticsPage repoData={repoData} setRepoData={setRepoData} />} />
+            <Route path="prs" element={<PullRequestsPage repoData={repoData} setRepoData={setRepoData} />} />
             <Route path="support" element={<SupportPage />} />
             <Route path="settings" element={<SettingsPage />} />
             <Route path="profile" element={<ProfilePage />} />

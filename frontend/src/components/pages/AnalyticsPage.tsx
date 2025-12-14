@@ -1,5 +1,5 @@
-
 import React from 'react';
+import LandingPage from '../landing/LandingPage';
 import {
     BarChart3,
     TrendingUp,
@@ -115,13 +115,22 @@ const pieData = [
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
 
 interface Props {
-  repoData: any;
+    repoData: any;
+    setRepoData?: (data: any) => void;
 }
 
-const AnalyticsPage: React.FC<Props> = ({ repoData }) => {
-  if (!repoData || !repoData.pull_requests) {
-    return <div>No data available. Please analyze a repository first.</div>;
-  }
+const AnalyticsPage: React.FC<Props> = ({ repoData, setRepoData }) => {
+    if (!repoData) {
+        return <LandingPage setRepoData={setRepoData || (() => {})} />;
+    }
+    if (!repoData.pull_requests) {
+        return (
+            <div>
+                No data available for pull requests. Please analyze a repository
+                first.
+            </div>
+        );
+    }
     const [selectedRange, setSelectedRange] = React.useState('Last Week');
     const [activeIndex, setActiveIndex] = React.useState(0);
 
@@ -349,7 +358,7 @@ const AnalyticsPage: React.FC<Props> = ({ repoData }) => {
             </div>
         </div>
     );
-}
+};
 
 const renderActiveShape = (props: any) => {
     const {
