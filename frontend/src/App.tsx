@@ -160,7 +160,7 @@ function App() {
               isAuthenticated ? <ProtectedLayout /> : <Navigate to="/login" replace />
             }
           >
-            <Route index element={<LandingPage setRepoData={setRepoData} />} />
+            <Route index element={<LandingPage setRepoData={setRepoData} message="Welcome! Enter a repository URL to get started." />} />
             <Route path="dashboard" element={<Dashboard repoData={repoData} setRepoData={setRepoData} />} />
             <Route path="integration" element={<BotIntegrationPage />} />
             <Route path="contributors" element={<ContributorsPage repoData={repoData} setRepoData={setRepoData} />} />
