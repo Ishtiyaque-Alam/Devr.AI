@@ -9,7 +9,7 @@ interface Props {
   message: string;
 }
 
-const LandingPage: React.FC<Props> = ({ setRepoData, message }) => {
+const LandingPage: React.FC<Props> = ({ setRepoData, message="Enter a GitHub repository URL to analyze its stats." }) => {
   const safeSetRepoData = setRepoData ?? (() => {});
   const [repoUrl, setRepoUrl] = useState('');
   const [loading, setLoading] = useState(false);
@@ -42,7 +42,7 @@ const LandingPage: React.FC<Props> = ({ setRepoData, message }) => {
     >
       <div className="bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-md">
         <h1 className="text-3xl font-bold mb-4">Welcome to Devr.AI</h1>
-        <p className="text-gray-400 mb-6">Enter a GitHub repository URL to analyze its stats.</p>
+        <p className="text-gray-400 mb-6">{message}</p>
         <input
           type="text"
           placeholder="https://github.com/owner/repo"

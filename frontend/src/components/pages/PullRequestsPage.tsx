@@ -23,7 +23,7 @@ interface Props {
 
 const PullRequestsPage: React.FC<Props> = ({ repoData, setRepoData }) => {
   if (!repoData) {
-        return <LandingPage setRepoData={setRepoData || (() => {})} />;
+        return <LandingPage setRepoData={setRepoData || (() => {})} message='Please analyze a repository first to get started.' />;
     }
     if (!repoData.pull_requests) {
         return <div>No data available for pull requests. Please analyze a repository first.</div>;

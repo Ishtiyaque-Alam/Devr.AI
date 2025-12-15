@@ -121,7 +121,7 @@ interface Props {
 
 const AnalyticsPage: React.FC<Props> = ({ repoData, setRepoData }) => {
     if (!repoData) {
-        return <LandingPage setRepoData={setRepoData || (() => {})} />;
+        return <LandingPage setRepoData={setRepoData || (() => {})} message='Please analyze a repository first to get started.' />;
     }
     if (!repoData.pull_requests) {
         return (
