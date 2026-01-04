@@ -69,24 +69,24 @@ cd ../../backend/app/database/supabase/scripts
 # Copy and paste the SQL scripts in this folder into the SQL editor as well.
 ```
 
-7. **Set up Docker container**
+7. **Start Docker containers**
 ```sh
 cd backend
 docker-compose up -d # Start weaviate, falkordb, rabbitmq
 ```
 
-8. **Start Docker containers**
-```sh
-Go to docker dekstop and start the containers
-```
 
+8. **Optional: Start Docker containers via Desktop**
+```sh
+Alternatively, open Docker Desktop and start the containers manually.
+```
 9. **Start the backend server**
 ```sh
 cd backend
 poetry run python main.py # Terminal 1
 poetry run python start_github_mcp_server.py # Terminal 2 (Start MCP server)
 # Terminal 3 (Start graphDB)
-cd .\backend\app\database\falkor\code-graph-backend\api
+cd backend/app/database/falkor/code-graph-backend/api
 flask --app index.py run --debug --port 5000 
 ```
 
