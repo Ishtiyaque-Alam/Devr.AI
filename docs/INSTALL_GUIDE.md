@@ -59,13 +59,13 @@ nano .env  # or use your preferred editor
 # This can be done using the Supabase CLI or by pasting the SQL scripts directly into the SQL editor in Supabase.
 # If you skip this step, you'll likely get a 'Table Not Found' error.
 
-# Step 1: Create integration tables
+# Step 1: Create integration tables (from repo root)
 cd backend/database
 # Open the file 01_create_integration_tables.sql, copy all its contents, 
 # and paste it into the SQL editor of your Supabase project.
 
 # Step 2: Create additional tables
-cd backend/app/database/supabase/scripts
+cd ../../backend/app/database/supabase/scripts
 # Copy and paste the SQL scripts in this folder into the SQL editor as well.
 ```
 
