@@ -71,6 +71,7 @@ cd ../../backend/app/database/supabase/scripts
 
 7. **Start Docker containers**
 ```sh
+#from repo root
 cd backend
 docker-compose up -d # Start weaviate, falkordb, rabbitmq
 ```
